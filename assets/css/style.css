@@ -50,7 +50,7 @@ select:focus {
     position: absolute;
     top: 30%;
     left: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -800px);
     background-color: #333;
     color: white;
     padding: 20px;
@@ -85,4 +85,65 @@ select:focus {
     float: right;
     text-align: right;
     cursor: pointer;
+}
+
+main {
+    display: grid;
+    /* Repeat 4 times at one fraction */
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.box {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease-out;
+}
+
+.box.active {
+    box-shadow: 0 0 10px 5px darksalmon;
+}
+
+.box img {
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
+}
+
+.box .info {
+    background-color: darksalmon;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 10px;
+    height: 100%;
+}
+
+/* Responsiveness */
+/* 1100px or less */
+@media(max-width: 1100px) {
+    main {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 760px or less */
+@media(max-width: 760px) {
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 500px or less */
+@media(max-width: 500px) {
+    main {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
